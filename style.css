@@ -1,0 +1,393 @@
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0d1117;
+  color: #e6edf3;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   CONTAINER
+   ========================================================================== */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(13, 17, 23, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 1px solid #30363d;
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1.5rem;
+}
+
+.logo {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #58a6ff;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2.2rem;
+}
+
+.nav-links a {
+  color: #c9d1d9;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.05rem;
+  transition: color 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #58a6ff;
+}
+
+/* ==========================================================================
+   HERO / HOME SECTION
+   ========================================================================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+  background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6rem;
+  flex-wrap: wrap;
+}
+
+.text-content {
+  flex: 1;
+  min-width: 340px;
+}
+
+.greeting {
+  font-size: 1.5rem;
+  color: #8b949e;
+  margin-bottom: 0.8rem;
+}
+
+h1 {
+  font-size: clamp(3.5rem, 7vw, 5.5rem);
+  line-height: 1.05;
+  margin-bottom: 0.6rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+  color: #8b949e;
+  margin-bottom: 1.8rem;
+}
+
+.highlight {
+  color: #58a6ff;
+}
+
+.description {
+  font-size: 1.2rem;
+  color: #8b949e;
+  max-width: 620px;
+  margin-bottom: 2.5rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1.8rem;
+  margin-bottom: 2.8rem;
+}
+
+.social-icons a {
+  color: #c9d1d9;
+  font-size: 1.9rem;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #58a6ff;
+  transform: translateY(-5px);
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2.4rem;
+  background: #238636;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #2ea043;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(35, 134, 54, 0.4);
+}
+
+/* Glowing rotating circle photo */
+.image-container {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.glowing-circle {
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #58a6ff 0deg 90deg,
+    #238636 90deg 180deg,
+    #58a6ff 180deg 270deg,
+    #238636 270deg 360deg
+  );
+  padding: 12px;
+  animation: rotate 16s linear infinite;
+}
+
+.glowing-circle img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid #0d1117;
+  box-shadow: 0 0 40px rgba(88, 166, 255, 0.25);
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   COMMON SECTION STYLES
+   ========================================================================== */
+section {
+  padding: 10rem 0 8rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 3.2rem;
+  margin-bottom: 4.5rem;
+}
+
+/* About */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.about-image img {
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  width: 100%;
+}
+
+/* Services */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+.service-card {
+  background: #161b22;
+  padding: 2.8rem 2rem;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid #30363d;
+  transition: all 0.35s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-12px);
+  border-color: #58a6ff;
+  box-shadow: 0 15px 40px rgba(88,166,255,0.15);
+}
+
+.service-card i {
+  font-size: 3.5rem;
+  color: #58a6ff;
+  margin-bottom: 1.6rem;
+}
+
+/* Skills */
+.skills-container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.skill {
+  margin: 2rem 0;
+}
+
+.skill span {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+
+.progress {
+  height: 12px;
+  background: #21262d;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress div {
+  height: 100%;
+  background: #58a6ff;
+  border-radius: 6px;
+  transition: width 1.4s ease;
+}
+
+/* Projects */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2.8rem;
+}
+
+.project-card {
+  background: #161b22;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #30363d;
+  transition: all 0.35s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-14px);
+  border-color: #58a6ff;
+}
+
+.project-img img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.project-info {
+  padding: 1.8rem;
+  text-align: center;
+}
+
+.project-links a {
+  margin: 0 1.2rem;
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+/* Contact */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 1.1rem 1.5rem;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.05rem;
+}
+
+.contact-form button {
+  margin-top: 1.2rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-content,
+  .about-content,
+  .contact-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image-container {
+    order: -1;
+    margin-bottom: 4rem;
+  }
+
+  .section {
+    padding: 8rem 0 6rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .glowing-circle {
+    width: 280px;
+    height: 280px;
+  }
+
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2rem; }
+
+  .section-title {
+    font-size: 2.6rem;
+  }
+
+  .nav-links {
+    gap: 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .services-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
